@@ -56,7 +56,7 @@ export function Hero({ c, tweaks, setTweak, onBook }) {
       <div className="absolute inset-0 grain" />
 
       {/* Nav */}
-      <header className="absolute inset-x-0 top-0 z-30 px-8 md:px-14 lg:px-20 pt-8">
+      <header className="absolute inset-x-0 top-0 z-30 px-5 sm:px-8 md:px-14 lg:px-20 pt-8">
         <div className="flex items-center justify-between rise" style={{ animationDelay: `${0 * m}s` }}>
           <Logo />
           <nav className="hidden md:flex items-center gap-12 text-[12.5px] tracking-[.32em] uppercase text-bone/75 font-light">
@@ -129,7 +129,7 @@ export function Hero({ c, tweaks, setTweak, onBook }) {
         </div>
       )}
 
-      <div className="absolute inset-x-0 bottom-0 z-10 px-8 md:px-14 lg:px-20 pb-7 fade" style={{ animationDelay: `${1.9 * m}s` }}>
+      <div className="absolute inset-x-0 bottom-0 z-10 px-5 sm:px-8 md:px-14 lg:px-20 pb-7 fade" style={{ animationDelay: `${1.9 * m}s` }}>
         <div className="hairline mb-5 opacity-60" />
         <div className="flex items-center justify-between text-[10px] tracking-[.4em] uppercase text-bone/40">
           <span>Osmose · Black Room</span>

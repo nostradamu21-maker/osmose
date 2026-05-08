@@ -15,11 +15,11 @@ export function Reservation({ copy, onBook }) {
              style={{ background: 'linear-gradient(90deg, rgba(5,5,5,1) 0%, rgba(5,5,5,.6) 25%, rgba(5,5,5,.2) 100%)' }} />
       </div>
 
-      <div ref={ref} className="reveal relative z-10 mx-auto max-w-[1400px] px-8 md:px-14 lg:px-20 py-20 md:py-44">
+      <div ref={ref} className="reveal relative z-10 mx-auto max-w-[1400px] px-5 sm:px-8 md:px-14 lg:px-20 py-20 md:py-44">
         <div className="grid grid-cols-12 gap-x-10 gap-y-12">
           <div className="col-span-12 md:col-span-7">
             <SectionLabel num="V." label={copy.reservation.kicker} />
-            <h2 className="mt-8 font-serif font-normal leading-[1.02] text-[clamp(36px,4.8vw,76px)] tracking-[-.01em]">
+            <h2 className="mt-6 font-serif font-normal leading-[1.08] sm:leading-[1.02] text-[clamp(26px,4.8vw,76px)] tracking-[-.01em] break-words">
               {copy.reservation.title1}<br />
               <em className="italic gold-leaf">{copy.reservation.title2}</em>
             </h2>

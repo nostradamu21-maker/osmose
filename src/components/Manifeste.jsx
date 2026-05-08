@@ -9,7 +9,7 @@ export function Manifeste({ copy }) {
            style={{ background: 'radial-gradient(closest-side, rgba(212,175,55,.18), transparent 70%)' }} />
       <div className="pointer-events-none absolute inset-0 grain" />
 
-      <div ref={ref} className="reveal relative z-10 mx-auto max-w-[1400px] px-8 md:px-14 lg:px-20 py-32 md:py-44">
+      <div ref={ref} className="reveal relative z-10 mx-auto max-w-[1400px] px-8 md:px-14 lg:px-20 py-20 md:py-44">
         <div className="mb-16">
           <SectionLabel num="I." label={copy.manifeste.kicker} />
         </div>

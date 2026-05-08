@@ -10,8 +10,8 @@ export function Experience({ copy }) {
   ];
   return (
     <section id="experience" className="relative bg-ink text-bone overflow-hidden">
-      <div ref={ref} className="reveal mx-auto max-w-[1400px] px-8 md:px-14 lg:px-20 py-32 md:py-44">
-        <div className="flex items-end justify-between flex-wrap gap-y-8 mb-16">
+      <div ref={ref} className="reveal mx-auto max-w-[1400px] px-8 md:px-14 lg:px-20 py-20 md:py-44">
+        <div className="flex items-end justify-between flex-wrap gap-y-6 mb-10 md:mb-16">
           <div className="max-w-[640px]">
             <SectionLabel num="III." label={copy.experience.kicker} />
             <h2 className="mt-8 font-serif font-normal leading-[1.02] text-[clamp(36px,4.8vw,76px)] tracking-[-.01em]">

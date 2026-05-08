@@ -5,26 +5,26 @@ import { Backdrop } from './Backdrop';
 function Headline({ style, c, m }) {
   if (style === 'outline') {
     return (
-      <h1 className="font-serif font-normal text-bone leading-[.95] text-[clamp(44px,8.4vw,148px)] tracking-[-0.01em]">
+      <h1 className="font-serif font-normal text-bone leading-[.95] text-[clamp(36px,8.4vw,148px)] tracking-[-0.01em]">
         <span className="block rise" style={{ animationDelay: `${0.2 * m}s` }}>{c.headlineA}</span>
-        <span className="block rise text-bone/80 text-[clamp(28px,5vw,90px)] italic font-light my-1" style={{ animationDelay: `${0.5 * m}s` }}>{c.headlineB}</span>
+        <span className="block rise text-bone/80 text-[clamp(24px,5vw,90px)] italic font-light my-1" style={{ animationDelay: `${0.5 * m}s` }}>{c.headlineB}</span>
         <span className="block rise" style={{ animationDelay: `${0.8 * m}s`, WebkitTextStroke: '1px #D4AF37', color: 'transparent', textShadow: '0 0 40px rgba(212,175,55,.18)' }}>{c.headlineC}</span>
       </h1>
     );
   }
   if (style === 'all-gold') {
     return (
-      <h1 className="font-serif font-normal leading-[.95] text-[clamp(44px,8.4vw,148px)] tracking-[-0.01em] gold-leaf">
+      <h1 className="font-serif font-normal leading-[.95] text-[clamp(36px,8.4vw,148px)] tracking-[-0.01em] gold-leaf">
         <span className="block rise" style={{ animationDelay: `${0.2 * m}s` }}>{c.headlineA}</span>
-        <span className="block rise text-[clamp(28px,5vw,90px)] italic font-light my-1" style={{ animationDelay: `${0.5 * m}s` }}>{c.headlineB}</span>
+        <span className="block rise text-[clamp(24px,5vw,90px)] italic font-light my-1" style={{ animationDelay: `${0.5 * m}s` }}>{c.headlineB}</span>
         <span className="block rise" style={{ animationDelay: `${0.8 * m}s` }}>{c.headlineC}</span>
       </h1>
     );
   }
   return (
-    <h1 className="font-serif font-normal text-bone leading-[.95] text-[clamp(44px,8.4vw,148px)] tracking-[-0.01em]">
+    <h1 className="font-serif font-normal text-bone leading-[.95] text-[clamp(36px,8.4vw,148px)] tracking-[-0.01em]">
       <span className="block rise" style={{ animationDelay: `${0.2 * m}s` }}>{c.headlineA}</span>
-      <span className="block rise text-bone/80 text-[clamp(28px,5vw,90px)] font-light my-1" style={{ animationDelay: `${0.5 * m}s` }}>{c.headlineB}</span>
+      <span className="block rise text-bone/80 text-[clamp(24px,5vw,90px)] font-light my-1" style={{ animationDelay: `${0.5 * m}s` }}>{c.headlineB}</span>
       <span className="block rise italic gold-leaf" style={{ animationDelay: `${0.8 * m}s` }}>{c.headlineC}</span>
     </h1>
   );
@@ -93,19 +93,19 @@ export function Hero({ c, tweaks, setTweak }) {
       {/* Center content */}
       <div className="relative z-20 h-full w-full flex flex-col items-center justify-center px-6 text-center">
         <div className="orn text-[18px] mb-10 rise" style={{ animationDelay: `${0.05 * m}s` }}>·  ·  ·</div>
-        <div className="text-[10.5px] tracking-[.5em] uppercase text-gold/75 mb-9 fade" style={{ animationDelay: `${0.1 * m}s` }}>
+        <div className="text-[10px] tracking-[.2em] sm:tracking-[.5em] uppercase text-gold/75 mb-6 sm:mb-9 fade px-2" style={{ animationDelay: `${0.1 * m}s` }}>
           {c.eyebrow}
         </div>
 
         <Headline style={headlineStyle} c={c} m={m} />
 
-        <p className="mt-10 max-w-[640px] text-[15px] md:text-[16px] leading-[1.85] font-light text-bone/65 rise"
+        <p className="mt-7 sm:mt-10 max-w-[640px] text-[14px] md:text-[16px] leading-[1.85] font-light text-bone/65 rise"
            style={{ animationDelay: `${1.05 * m}s` }}>
           {c.sub}
         </p>
 
         <div className="mt-12 rise" style={{ animationDelay: `${1.3 * m}s` }}>
-          <a href="#reserver" className="cta inline-flex items-center justify-center px-12 py-5 text-[11px] uppercase font-sans font-light">
+          <a href="#reserver" className="cta inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 text-[10px] sm:text-[11px] uppercase font-sans font-light">
             <span>
               {c.cta}
               <svg width="32" height="8" viewBox="0 0 32 8" fill="none" aria-hidden="true">

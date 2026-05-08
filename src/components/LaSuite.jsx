@@ -6,7 +6,7 @@ export function LaSuite({ copy }) {
   return (
     <section className="relative bg-ink text-bone overflow-hidden">
       <div ref={ref} className="reveal relative">
-        <div className="relative h-[88vh] w-full overflow-hidden">
+        <div className="relative h-[70vh] sm:h-[88vh] w-full overflow-hidden">
           <img src="/img/bedroom.jpg" alt="La Suite"
                className="absolute inset-0 h-full w-full object-cover slow-zoom"
                style={{ filter: 'brightness(.78) contrast(1.05) saturate(.95)' }} />

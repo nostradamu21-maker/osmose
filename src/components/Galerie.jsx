@@ -4,15 +4,15 @@ import { SectionLabel } from './SectionLabel';
 export function Galerie({ copy }) {
   const ref = useReveal();
   const items = [
-    { src: '/img/livingroom.jpg', span: 'row-span-2 col-span-2', label: 'Salon',   id: '01' },
-    { src: '/img/bedroom.jpg',    span: 'col-span-1',            label: 'Chambre', id: '02' },
-    { src: '/img/jacuzzi.jpg',    span: 'col-span-1',            label: 'Spa',     id: '03' },
-    { src: '/img/lounge.jpg',     span: 'col-span-1',            label: 'Lounge',  id: '04' },
-    { src: '/img/bar.jpg',        span: 'col-span-1',            label: 'Bar',     id: '05' },
+    { src: '/img/livingroom.jpg', span: 'col-span-2 md:row-span-2 md:col-span-2', label: 'Salon',   id: '01' },
+    { src: '/img/bedroom.jpg',    span: 'col-span-2 md:col-span-1',               label: 'Chambre', id: '02' },
+    { src: '/img/jacuzzi.jpg',    span: 'col-span-2 md:col-span-1',               label: 'Spa',     id: '03' },
+    { src: '/img/lounge.jpg',     span: 'col-span-1',                             label: 'Lounge',  id: '04' },
+    { src: '/img/bar.jpg',        span: 'col-span-1',                             label: 'Bar',     id: '05' },
   ];
   return (
     <section id="galerie" className="relative bg-ink text-bone overflow-hidden">
-      <div ref={ref} className="reveal mx-auto max-w-[1500px] px-8 md:px-14 lg:px-20 py-32 md:py-44">
+      <div ref={ref} className="reveal mx-auto max-w-[1500px] px-8 md:px-14 lg:px-20 py-20 md:py-44">
         <div className="flex items-end justify-between flex-wrap gap-y-8 mb-14">
           <div>
             <SectionLabel num="IV." label={copy.galerie.kicker} />
@@ -25,7 +25,7 @@ export function Galerie({ copy }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] md:auto-rows-[260px] gap-3 md:gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[220px] md:auto-rows-[260px] gap-3 md:gap-5">
           {items.map((it, i) => (
             <figure key={i} className={`relative overflow-hidden group ${it.span} reveal-tile`}
                     style={{ animationDelay: `${i * 100}ms` }}>
@@ -42,7 +42,7 @@ export function Galerie({ copy }) {
               <span className="absolute inset-0 ring-1 ring-inset ring-gold/0 group-hover:ring-gold/45 transition duration-700" />
             </figure>
           ))}
-          <figure className="relative col-span-2 md:col-span-2 row-span-1 bg-anthracite border border-bone/5 flex items-center px-7 md:px-10">
+          <figure className="relative col-span-2 row-span-1 bg-anthracite border border-bone/5 flex items-center px-7 md:px-10">
             <blockquote className="font-serif italic text-bone/85 text-[18px] md:text-[22px] leading-[1.45]">
               "{copy.galerie.quote}"
               <footer className="mt-4 not-italic text-[10px] tracking-[.4em] uppercase text-gold/75 font-sans">

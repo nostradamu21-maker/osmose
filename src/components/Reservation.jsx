@@ -5,7 +5,7 @@ import { SectionLabel } from './SectionLabel';
 function Field({ label, type, placeholder, full, value, onChange }) {
   const cls = 'bg-transparent border-b border-bone/20 focus:border-gold/70 outline-none w-full py-3 text-[14px] font-light text-bone placeholder:text-bone/25 transition-colors';
   return (
-    <label className={`block ${full ? 'col-span-2' : 'col-span-2 sm:col-span-1'}`}>
+    <label className={`block ${full ? 'col-span-1 sm:col-span-2' : 'col-span-1'}`}>
       <span className="block text-[10px] tracking-[.4em] uppercase text-bone/45 mb-1">{label}</span>
       {type === 'textarea'
         ? <textarea rows="2" placeholder={placeholder} className={cls + ' resize-none'} />
@@ -19,7 +19,7 @@ function Field({ label, type, placeholder, full, value, onChange }) {
 
 function Stepper({ label, value, onChange, suffix }) {
   return (
-    <div className="col-span-2 sm:col-span-1">
+    <div className="col-span-1">
       <span className="block text-[10px] tracking-[.4em] uppercase text-bone/45 mb-1">{label}</span>
       <div className="flex items-center justify-between border-b border-bone/20 py-2">
         <button type="button" onClick={() => onChange(value - 1)}
@@ -50,7 +50,7 @@ export function Reservation({ copy }) {
              style={{ background: 'linear-gradient(90deg, rgba(5,5,5,1) 0%, rgba(5,5,5,.6) 25%, rgba(5,5,5,.2) 100%)' }} />
       </div>
 
-      <div ref={ref} className="reveal relative z-10 mx-auto max-w-[1400px] px-8 md:px-14 lg:px-20 py-32 md:py-44">
+      <div ref={ref} className="reveal relative z-10 mx-auto max-w-[1400px] px-8 md:px-14 lg:px-20 py-20 md:py-44">
         <div className="grid grid-cols-12 gap-x-10 gap-y-12">
           <div className="col-span-12 md:col-span-7">
             <SectionLabel num="V." label={copy.reservation.kicker} />
@@ -62,7 +62,7 @@ export function Reservation({ copy }) {
               {copy.reservation.body}
             </p>
 
-            <form className="mt-12 max-w-[560px] grid grid-cols-2 gap-x-6 gap-y-7"
+            <form className="mt-12 max-w-[560px] grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-7"
                   onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
               <Field label={f.name}    type="text"     placeholder="—" full />
               <Field label={f.email}   type="email"    placeholder="—" />
@@ -78,7 +78,7 @@ export function Reservation({ copy }) {
                        suffix={stay.guests > 1 ? f.guestsP : f.guestsS} />
               <Field label={f.message} type="textarea" placeholder="—" full />
 
-              <div className="col-span-2 mt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+              <div className="col-span-1 sm:col-span-2 mt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
                 <p className="text-[10px] tracking-[.4em] uppercase text-bone/40">{f.disclaimer}</p>
                 <button type="submit" className="cta inline-flex items-center justify-center px-10 py-4 text-[10.5px] uppercase font-sans font-light">
                   <span>

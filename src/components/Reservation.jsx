@@ -1,44 +1,9 @@
-import { useState } from 'react';
 import { useReveal } from '../hooks/useReveal';
 import { SectionLabel } from './SectionLabel';
 
-function Field({ label, type, placeholder, full, value, onChange }) {
-  const cls = 'bg-transparent border-b border-bone/20 focus:border-gold/70 outline-none w-full py-3 text-[14px] font-light text-bone placeholder:text-bone/25 transition-colors';
-  return (
-    <label className={`block ${full ? 'col-span-1 sm:col-span-2' : 'col-span-1'}`}>
-      <span className="block text-[10px] tracking-[.4em] uppercase text-bone/45 mb-1">{label}</span>
-      {type === 'textarea'
-        ? <textarea rows="2" placeholder={placeholder} className={cls + ' resize-none'} />
-        : <input type={type} placeholder={placeholder}
-                 value={value} onChange={onChange ? (e) => onChange(e.target.value) : undefined}
-                 className={cls + (type === 'date' ? ' [color-scheme:dark]' : '')} />
-      }
-    </label>
-  );
-}
-
-function Stepper({ label, value, onChange, suffix }) {
-  return (
-    <div className="col-span-1">
-      <span className="block text-[10px] tracking-[.4em] uppercase text-bone/45 mb-1">{label}</span>
-      <div className="flex items-center justify-between border-b border-bone/20 py-2">
-        <button type="button" onClick={() => onChange(value - 1)}
-                className="text-gold/70 hover:text-gold transition w-7 h-7 flex items-center justify-center text-lg leading-none">−</button>
-        <span className="font-serif text-[20px] text-bone tabular-nums">
-          {value} <span className="text-[11px] tracking-[.3em] uppercase font-sans font-light text-bone/55 ml-1">{suffix}</span>
-        </span>
-        <button type="button" onClick={() => onChange(value + 1)}
-                className="text-gold/70 hover:text-gold transition w-7 h-7 flex items-center justify-center text-lg leading-none">+</button>
-      </div>
-    </div>
-  );
-}
-
-export function Reservation({ copy }) {
+export function Reservation({ copy, onBook }) {
   const ref = useReveal();
-  const [stay, setStay] = useState({ guests: 2, nights: 1, arrival: '' });
-  const [submitted, setSubmitted] = useState(false);
-  const { f, aside } = copy.reservation;
+  const { aside } = copy.reservation;
 
   return (
     <section id="reserver" className="relative bg-ink text-bone overflow-hidden">
@@ -62,41 +27,26 @@ export function Reservation({ copy }) {
               {copy.reservation.body}
             </p>
 
-            <form className="mt-12 max-w-[560px] grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-7"
-                  onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
-              <Field label={f.name}    type="text"     placeholder="—" full />
-              <Field label={f.email}   type="email"    placeholder="—" />
-              <Field label={f.phone}   type="tel"      placeholder="—" />
-              <Field label={f.arrival} type="date"
-                     value={stay.arrival}
-                     onChange={(v) => setStay(s => ({ ...s, arrival: v }))} />
-              <Stepper label={f.nights} value={stay.nights}
-                       onChange={(v) => setStay(s => ({ ...s, nights: Math.max(1, Math.min(7, v)) }))}
-                       suffix={stay.nights > 1 ? f.nightsP : f.nightsS} />
-              <Stepper label={f.guests} value={stay.guests}
-                       onChange={(v) => setStay(s => ({ ...s, guests: Math.max(1, Math.min(4, v)) }))}
-                       suffix={stay.guests > 1 ? f.guestsP : f.guestsS} />
-              <Field label={f.message} type="textarea" placeholder="—" full />
-
-              <div className="col-span-1 sm:col-span-2 mt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
-                <p className="text-[10px] tracking-[.4em] uppercase text-bone/40">{f.disclaimer}</p>
-                <button type="submit" className="cta inline-flex items-center justify-center px-10 py-4 text-[10.5px] uppercase font-sans font-light">
-                  <span>
-                    {submitted ? f.submitted : f.submit}
-                    <svg width="26" height="6" viewBox="0 0 26 6" fill="none" aria-hidden="true">
-                      <path d="M0 3 H 22 M 19 1 L 25 3 L 19 5" stroke="currentColor" strokeWidth="1"/>
-                    </svg>
-                  </span>
-                </button>
+            <div className="mt-10 flex flex-wrap items-center gap-8">
+              <button type="button" onClick={onBook}
+                      className="cta inline-flex items-center justify-center px-10 py-4 text-[10.5px] uppercase font-sans font-light">
+                <span>Réserver maintenant
+                  <svg width="26" height="6" viewBox="0 0 26 6" fill="none" aria-hidden="true">
+                    <path d="M0 3 H 22 M 19 1 L 25 3 L 19 5" stroke="currentColor" strokeWidth="1"/>
+                  </svg>
+                </span>
+              </button>
+              <div className="text-[10px] tracking-[.4em] uppercase text-bone/50">
+                Confirmation immédiate · Annulation gratuite
               </div>
-            </form>
+            </div>
           </div>
 
           <aside className="col-span-12 md:col-span-4 md:col-start-9 md:pt-8">
             <div className="border border-gold/25 bg-black/30 backdrop-blur-sm p-7 md:p-8">
               <div className="text-[10px] tracking-[.5em] uppercase text-gold/80 mb-5">{aside.kicker}</div>
               <div className="font-serif text-[40px] leading-none text-bone">
-                <span className="gold-leaf italic">€</span> 480
+                <span className="gold-leaf italic">€</span> 280
                 <span className="text-[14px] font-sans font-light text-bone/55 ml-2">/ {aside.unit}</span>
               </div>
               <ul className="mt-7 space-y-3 text-[12.5px] font-light text-bone/70">

@@ -30,7 +30,7 @@ function Headline({ style, c, m }) {
   );
 }
 
-export function Hero({ c, tweaks, setTweak }) {
+export function Hero({ c, tweaks, setTweak, onBook }) {
   const { background, headlineStyle, showVeil, showVertical, showSuiteRef, showScrollCue, motion, language } = tweaks;
   const [lang, setLang] = useState(language);
   useEffect(() => setLang(language), [language]);
@@ -61,7 +61,10 @@ export function Hero({ c, tweaks, setTweak }) {
           <Logo />
           <nav className="hidden md:flex items-center gap-12 text-[12.5px] tracking-[.32em] uppercase text-bone/75 font-light">
             {c.nav.map((n, i) => {
-              const anchors = ['#experience', '#galerie', '#reserver'];
+              if (i === 2) {
+                return <button key={i} type="button" onClick={onBook} className="nav-link hover:text-bone transition-colors">{n}</button>;
+              }
+              const anchors = ['#experience', '#galerie'];
               return <a key={i} href={anchors[i]} className="nav-link hover:text-bone transition-colors">{n}</a>;
             })}
           </nav>
@@ -105,14 +108,14 @@ export function Hero({ c, tweaks, setTweak }) {
         </p>
 
         <div className="mt-12 rise" style={{ animationDelay: `${1.3 * m}s` }}>
-          <a href="#reserver" className="cta inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 text-[10px] sm:text-[11px] uppercase font-sans font-light">
+          <button type="button" onClick={onBook} className="cta inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 text-[10px] sm:text-[11px] uppercase font-sans font-light">
             <span>
               {c.cta}
               <svg width="32" height="8" viewBox="0 0 32 8" fill="none" aria-hidden="true">
                 <path d="M0 4 H 28 M 24 1 L 31 4 L 24 7" stroke="currentColor" strokeWidth="1"/>
               </svg>
             </span>
-          </a>
+          </button>
         </div>
       </div>
 

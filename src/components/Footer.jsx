@@ -1,4 +1,10 @@
-export function Footer({ copy }) {
+export function Footer({ copy, onBook }) {
+  const handle = (label) => (e) => {
+    if (label === 'Réservation' || label === 'Reservation') {
+      e.preventDefault();
+      onBook?.();
+    }
+  };
   return (
     <footer className="relative bg-ink text-bone border-t border-bone/10">
       <div className="mx-auto max-w-[1400px] px-8 md:px-14 lg:px-20 py-16">
@@ -21,7 +27,7 @@ export function Footer({ copy }) {
             <div className="text-[10px] tracking-[.4em] uppercase text-gold/75 mb-4">{copy.footer.col1}</div>
             <ul className="space-y-2 text-[12.5px] font-light text-bone/65">
               {copy.footer.links1.map((l, i) => (
-                <li key={i}><a href="#" className="nav-link hover:text-bone transition">{l}</a></li>
+                <li key={i}><a href="#" onClick={handle(l)} className="nav-link hover:text-bone transition">{l}</a></li>
               ))}
             </ul>
           </div>

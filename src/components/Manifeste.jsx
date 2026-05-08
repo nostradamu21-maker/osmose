@@ -14,7 +14,7 @@ export function Manifeste({ copy }) {
           <SectionLabel num="I." label={copy.manifeste.kicker} />
         </div>
 
-        <div className="grid grid-cols-12 gap-y-10 gap-x-10">
+        <div className="grid grid-cols-12 gap-y-10 gap-x-0 sm:gap-x-10">
           <div className="col-span-12 md:col-span-7">
             <h2 className="font-serif font-normal leading-[1.1] sm:leading-[1.05] text-[clamp(26px,5.4vw,88px)] tracking-[-.01em] text-bone break-words">
               {copy.manifeste.h1a}{' '}

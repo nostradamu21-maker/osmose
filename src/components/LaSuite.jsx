@@ -24,7 +24,7 @@ export function LaSuite({ copy }) {
 
           <div className="absolute inset-0 flex items-end">
             <div className="w-full px-5 sm:px-8 md:px-14 lg:px-20 pb-16 md:pb-20">
-              <div className="grid grid-cols-12 gap-x-10">
+              <div className="grid grid-cols-12 gap-x-0 sm:gap-x-10">
                 <div className="col-span-12 md:col-span-7 lg:col-span-6">
                   <SectionLabel num="II." label={copy.suite.kicker} />
                   <h2 className="mt-6 font-serif font-normal leading-[1.02] sm:leading-[.98] text-[clamp(26px,6vw,108px)] tracking-[-.01em] text-bone break-words">

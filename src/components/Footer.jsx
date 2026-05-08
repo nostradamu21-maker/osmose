@@ -8,7 +8,7 @@ export function Footer({ copy, onBook }) {
   return (
     <footer className="relative bg-ink text-bone border-t border-bone/10">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 md:px-14 lg:px-20 py-16">
-        <div className="grid grid-cols-12 gap-y-10 gap-x-10">
+        <div className="grid grid-cols-12 gap-y-10 gap-x-0 sm:gap-x-10">
           <div className="col-span-12 md:col-span-4">
             <div className="flex items-center gap-3">
               <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
